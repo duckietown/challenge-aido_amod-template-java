@@ -1,4 +1,0 @@
-# python specific ignores
-__pycache__/
-*.pyc
-*.pyo

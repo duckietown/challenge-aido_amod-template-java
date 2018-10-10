@@ -9,7 +9,7 @@ RUN pip install -r /project/requirements.txt
 COPY solution.py /project/solution.py
 
 # Builds JAR file
-RUN mvn -DskipTests install
+RUN mvn clean install -DskipTests=true 
 
 
 WORKDIR /project

@@ -1,18 +1,10 @@
-FROM duckietown/amod:latest
+FROM maven
 
-RUN apt-get update
-RUN apt-get install -y python-pip
-
-COPY requirements.txt /project/requirements.txt
-RUN pip install -r /project/requirements.txt
-
-COPY solution.py /project/solution.py
+# Copies project directory into container
+COPY . aidamod
 
 # Builds JAR file
-RUN mvn clean install -DskipTests=true 
+RUN mvn -f aidamod/pom.xml install -DskipTests=true
 
-
-WORKDIR /project
-CMD python /project/solution.py
-
-
+# Move to output directory for easy access to JAR
+WORKDIR /aidamod/target/

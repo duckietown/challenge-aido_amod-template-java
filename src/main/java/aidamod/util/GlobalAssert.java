@@ -2,16 +2,14 @@
 package aidamod.util;
 
 public enum GlobalAssert {
-	;
-	/**
-	 * throws an exception if valid == false
-	 * 
-	 * @param valid
-	 */
-	// DO NOT MODIFY THIS FUNCTION BUT ADD ANOTHER FUNCTION IF CHANGE IS
-	// REQUIRED
-	public static void that(boolean valid) {
-		if (!valid)
-			throw new RuntimeException();
-	}
+    ;
+    /** throws an exception if valid == false
+     * 
+     * @param valid */
+    // DO NOT MODIFY THIS FUNCTION BUT ADD ANOTHER FUNCTION IF CHANGE IS
+    // REQUIRED
+    public static void that(boolean valid) {
+        if (!valid)
+            throw new RuntimeException();
+    }
 }

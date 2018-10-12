@@ -2,31 +2,31 @@
 package aidamod.util;
 
 public enum RoboTaxiStatus {
-	DRIVEWITHCUSTOMER(true, "dwc", "with customer"), //
-	DRIVETOCUSTOMER(true, "d2c", "pickup"), //
-	REBALANCEDRIVE(true, "reb", "rebalance"), //
-	STAY(false, "sty", "stay"), //
-	OFFSERVICE(false, "off", "off service"),;
+    DRIVEWITHCUSTOMER(true, "dwc", "with customer"), //
+    DRIVETOCUSTOMER(true, "d2c", "pickup"), //
+    REBALANCEDRIVE(true, "reb", "rebalance"), //
+    STAY(false, "sty", "stay"), //
+    OFFSERVICE(false, "off", "off service"),;
 
-	private final String tag;
-	private final String description;
-	private final boolean isDriving;
+    private final String tag;
+    private final String description;
+    private final boolean isDriving;
 
-	private RoboTaxiStatus(boolean isDriving, String xmlTag, String description) {
-		this.isDriving = isDriving;
-		this.tag = xmlTag;
-		this.description = description;
-	}
+    private RoboTaxiStatus(boolean isDriving, String xmlTag, String description) {
+        this.isDriving = isDriving;
+        this.tag = xmlTag;
+        this.description = description;
+    }
 
-	public boolean isDriving() {
-		return isDriving;
-	}
+    public boolean isDriving() {
+        return isDriving;
+    }
 
-	public String tag() {
-		return tag;
-	}
+    public String tag() {
+        return tag;
+    }
 
-	public String description() {
-		return description;
-	}
+    public String description() {
+        return description;
+    }
 }

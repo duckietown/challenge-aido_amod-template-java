@@ -7,41 +7,41 @@ import java.io.PrintWriter;
 import java.net.Socket;
 
 public class StringSocket implements AutoCloseable {
-	private final Socket socket;
-	private final PrintWriter writer;
-	private final BufferedReader reader; //
-	private volatile boolean launched = true;
+    private final Socket socket;
+    private final PrintWriter writer;
+    private final BufferedReader reader; //
+    private volatile boolean launched = true;
 
-	public StringSocket(final Socket socket) throws Exception {
-		this.socket = socket;
-		// flush the stream immediately to ensure that constructors for
-		// receiving ObjectInputStreams will not block when reading the header
-		writer = new PrintWriter(socket.getOutputStream(), true);
-		writer.flush();
-		reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-	}
+    public StringSocket(final Socket socket) throws Exception {
+        this.socket = socket;
+        // flush the stream immediately to ensure that constructors for
+        // receiving ObjectInputStreams will not block when reading the header
+        writer = new PrintWriter(socket.getOutputStream(), true);
+        writer.flush();
+        reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+    }
 
-	public synchronized void writeln(Object object) throws Exception {
-		writer.write(object.toString() + "\n");
-		writer.flush();
-	}
+    public synchronized void writeln(Object object) throws Exception {
+        writer.write(object.toString() + "\n");
+        writer.flush();
+    }
 
-	public boolean isConnected() {
-		return launched;
-	}
+    public boolean isConnected() {
+        return launched;
+    }
 
-	@Override
-	public void close() {
-		launched = false;
-		try {
-			socket.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+    @Override
+    public void close() {
+        launched = false;
+        try {
+            socket.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-	public String readLine() throws Exception {
-		return reader.readLine();
-	}
+    public String readLine() throws Exception {
+        return reader.readLine();
+    }
 
 }

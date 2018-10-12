@@ -6,7 +6,7 @@ import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-import ch.ethz.idsc.amodeus.dispatcher.core.RoboTaxiStatus;
+import aidamod.util.RoboTaxiStatus;
 import ch.ethz.idsc.tensor.RealScalar;
 import ch.ethz.idsc.tensor.Scalar;
 import ch.ethz.idsc.tensor.Tensor;
@@ -25,8 +25,10 @@ import ch.ethz.idsc.tensor.sca.Round;
     private final Distribution dist_lng;
     private final Distribution dist_lat;
 
-    /** @param bottomLeft {lngMin, latMin}
-     * @param topRight {lngMax, latMax} */
+    /** @param bottomLeft
+     *            {lngMin, latMin}
+     * @param topRight
+     *            {lngMax, latMax} */
     public DispatchingLogic(Tensor bottomLeft, Tensor topRight) {
         Scalar lngMin = bottomLeft.Get(0);
         Scalar lngMax = topRight.Get(0);
@@ -38,11 +40,9 @@ import ch.ethz.idsc.tensor.sca.Round;
         System.out.println("minimum latitude  in network: " + latMin);
         System.out.println("maximum latitude  in network: " + latMax);
 
-        /** Example:
-         * minimum longitude in network: -71.38020297181387
-         * maximum longitude in network: -70.44406349551404
-         * minimum latitude in network: -33.869660953686626
-         * maximum latitude in network: -33.0303523690584 */
+        /** Example: minimum longitude in network: -71.38020297181387 maximum
+         * longitude in network: -70.44406349551404 minimum latitude in network:
+         * -33.869660953686626 maximum latitude in network: -33.0303523690584 */
 
         dist_lng = UniformDistribution.of(lngMin, lngMax);
         dist_lat = UniformDistribution.of(latMin, latMax);
@@ -53,7 +53,8 @@ import ch.ethz.idsc.tensor.sca.Round;
         Tensor rebalance = Tensors.empty();
 
         Scalar time = status.Get(0);
-        if (Round.toMultipleOf(RealScalar.of(60)).apply(time).equals(time)) { // every minute
+        if (Round.toMultipleOf(RealScalar.of(60)).apply(time).equals(time)) { // every
+                                                                              // minute
             int index = 0;
 
             /** sort requests according to submission time */
@@ -97,9 +98,9 @@ import ch.ethz.idsc.tensor.sca.Round;
     }
 
     private Tensor getRandomRebalanceLocation() {
-        /** ATTENTION: AMoDeus internally uses the convention
-         * (longitude, latitude) for a WGS:84 pair,
-         * not the other way around as in some other cases. */
+        /** ATTENTION: AMoDeus internally uses the convention (longitude,
+         * latitude) for a WGS:84 pair, not the other way around as in some
+         * other cases. */
         return Tensors.of( //
                 RandomVariate.of(dist_lng), //
                 RandomVariate.of(dist_lat));

@@ -6,8 +6,9 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.Objects;
 
-import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
-import ch.ethz.idsc.amodeus.util.net.StringSocket;
+import aidamod.util.GlobalAssert;
+import aidamod.util.StringSocket;
+
 import ch.ethz.idsc.tensor.RealScalar;
 import ch.ethz.idsc.tensor.Scalar;
 import ch.ethz.idsc.tensor.Scalars;

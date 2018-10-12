@@ -4,11 +4,10 @@ import sys
 
 from duckietown_challenges import wrap_solution, ChallengeSolution, ChallengeInterfaceSolution
 
-
 class Solver(ChallengeSolution):
     def run(self, cis):
         assert isinstance(cis, ChallengeInterfaceSolution)
-        cmd = ['java', '-Xmx10000m', '-cp', 'amod-1.4.8.jar', 'amod.aido.demo.AidoGuest', 'aido-host']
+        cmd = ['java', '-Xmx10000m', '-cp', 'aidamod-1.4.7.jar', 'aidamod.demo.AidoGuest', 'aido-host']
         cwd = '/aidamod/target'
         cis.info('Now running %s' % cmd)
 

@@ -7,7 +7,7 @@ COPY pom.xml /aidamod/pom.xml
 RUN mvn -f /aidamod/pom.xml package -DskipTests=true
 
 # Move to output directory for easy access to JAR
-WORKDIR /aidamod/target/
+# WORKDIR /aidamod/target/
 
 RUN apt-get update
 RUN apt-get install -y python-pip

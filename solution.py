@@ -9,15 +9,19 @@ from duckietown_challenges import wrap_solution, ChallengeSolution, ChallengeInt
 class Solver(ChallengeSolution):
     def run(self, cis):
         assert isinstance(cis, ChallengeInterfaceSolution)
-#        cwd = '/aidamod/target'
-#        cp = 'aidamod-1.4.7.jar'
-#        fn = os.path.join(cwd, cp)
-#        if not os.path.exists(fn):
-#            msg = 'Could not find %s.' % cp
-#            msg += '\nThese are the files: %s' % list(os.listdir(cwd))
-#            raise Exception(msg)
+        cwd = '/aidamod/target'
+        cp = 'aidamod-1.4.7.jar'
+        fn = os.path.join(cwd, cp)
+        if not os.path.exists(fn):
+            msg = 'Could not find %s.' % cp
+            msg += '\nThese are the files: %s' % list(os.listdir(cwd))
+            raise Exception(msg)
 
-        cmd = ['java', '-jar', '/aidamod/target/aidamod-1.4.7.jar', 'aido-host']
+	cis.info('next showing the current directory.')
+	cis.info(os.getcwd())
+	dirlist = os.listdir(os.getcwd())
+	cis.info(dirlist)
+        cmd = ['java', '-jar', 'aidamod-1.4.7.jar', 'aido-host']
 #               '-cp', cp,
 #               'aidamod.demo.AidoGuest', 'aido-host']
         cis.info('Now running %s' % cmd)

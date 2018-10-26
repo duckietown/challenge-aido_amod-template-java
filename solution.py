@@ -25,7 +25,8 @@ class Solver(ChallengeSolution):
 	cmdversion = ['java','-version']
         subprocess.check_call(cmdversion, cwd=cwd, stdout=sys.stdout, stderr=sys.stderr)
 #        cmd = ['java', '-jar', 'aidamod-1.4.7.jar', 'aido-host']
-        cmd = ['java', '-cp', 'aidamod-1.4.7.jar','aidamod.demo.AidoGuest', 'aido-host']
+#        cmd = ['java', '-cp', 'aidamod-1.4.7.jar','aidamod.demo.AidoGuest', 'aido-host']
+        cmd = ['java', '-cp', 'classes/','aidamod.demo.AidoGuest', 'aido-host']
 #               '-cp', cp,
 #               'aidamod.demo.AidoGuest', 'aido-host']
         cis.info('Now running %s' % cmd)

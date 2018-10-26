@@ -4,7 +4,7 @@ FROM maven
 COPY pom.xml /aidamod/pom.xml
 
 # Builds JAR file
-RUN mvn -f /aidamod/pom.xml package -DskipTests=true
+RUN mvn -f /aidamod/pom.xml compile -DskipTests=true
 
 # Move to output directory for easy access to JAR
 WORKDIR /aidamod/target/

@@ -12,10 +12,10 @@ class Solver(ChallengeSolution):
         cwd = '/aidamod/target'
         cp = 'aidamod-1.4.7.jar'
         fn = os.path.join(cwd, cp)
-        if not os.path.exists(fn):
-            msg = 'Could not find %s.' % cp
-            msg += '\nThese are the files: %s' % list(os.listdir(cwd))
-            raise Exception(msg)
+#        if not os.path.exists(fn):
+#            msg = 'Could not find %s.' % cp
+#            msg += '\nThese are the files: %s' % list(os.listdir(cwd))
+#            raise Exception(msg)
 
 	cis.info('next showing the current directory.')
 	cis.info(os.getcwd())

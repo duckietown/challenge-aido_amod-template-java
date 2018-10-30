@@ -1,7 +1,8 @@
 FROM maven
 
 # Copies project directory into container
-COPY pom.xml /aidamod/pom.xml
+# COPY pom.xml /aidamod/pom.xml
+COPY . /aidamod/
 
 # Builds JAR file
 RUN mvn -f /aidamod/pom.xml compile -DskipTests=true

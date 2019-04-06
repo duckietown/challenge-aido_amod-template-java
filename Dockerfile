@@ -1,4 +1,4 @@
-FROM maven
+FROM maven:3.6.0-jdk-8
 
 # Copies project directory into container
 # COPY pom.xml /aidamod/pom.xml

@@ -2,10 +2,9 @@
  
 # AI Driving Olympics
 
-<a href="http://aido.duckietown.org"><img width="200" src="https://www.duckietown.org/wp-content/uploads/2018/07/AIDO-768x512.png"/></a>
+<a href="http://aido.duckietown.org"><img width="200" src="https://user-images.githubusercontent.com/4012178/56652412-994da280-668b-11e9-92fa-ef0a947b290e.png"/></a>
 
-
-## Template "Java template" for challenge `aido1_amod1-v3`
+## Template "Java template" for challenge `aido2-amod-v3`
 
 This is a template for one of the challenges in the [the AI Driving Olympics](http://aido.duckietown.org/).
 

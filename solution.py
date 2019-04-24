@@ -12,17 +12,17 @@ class Solver(ChallengeSolution):
         cwd = '/aidamod/target'
         cp = 'aidamod-1.4.7.jar'
         fn = os.path.join(cwd, cp)
-#        if not os.path.exists(fn):
-#            msg = 'Could not find %s.' % cp
-#            msg += '\nThese are the files: %s' % list(os.listdir(cwd))
-#            raise Exception(msg)
+        if not os.path.exists(fn):
+           msg = 'Could not find the JAR file %s' % cp
+           msg += '\nThese are the files in the dir: %s' % list(os.listdir(cwd))
+           raise Exception(msg)
 
-	cis.info('next showing the current directory.')
-	cis.info(os.getcwd())
-	dirlist = os.listdir(os.getcwd())
-	cis.info(dirlist)
-	cis.info('showing java version:')
-	cmdversion = ['java','-version']
+        cis.info('next showing the current directory.')
+        cis.info(os.getcwd())
+        dirlist = os.listdir(os.getcwd())
+        cis.info(dirlist)
+        cis.info('showing java version:')
+        cmdversion = ['java','-version']
         subprocess.check_call(cmdversion, cwd=cwd, stdout=sys.stdout, stderr=sys.stderr)
         cmd = ['java', '-jar', 'aidamod-1.4.7.jar', 'aido-host']
 #        cmd = ['java', '-cp', 'aidamod-1.4.7.jar','aidamod.demo.AidoGuest', 'aido-host']

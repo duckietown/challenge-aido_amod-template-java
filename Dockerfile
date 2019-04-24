@@ -1,4 +1,7 @@
-FROM maven:3.6.0-jdk-8
+FROM duckietown/amod:aido2-01
+COPY requirements.txt .
+RUN pip3.7 install -r requirements.txt
+
 
 # Copies project directory into container
 # COPY pom.xml /aidamod/pom.xml
@@ -9,13 +12,10 @@ RUN mvn -f /aidamod/pom.xml compile -DskipTests=true
 
 # Move to output directory for easy access to JAR
 WORKDIR /aidamod/target/
+ 
 
-RUN apt-get update
-RUN apt-get install -y python-pip
-COPY requirements.txt /project/requirements.txt
-RUN pip install -r /project/requirements.txt
 
 COPY solution.py /project/solution.py
-CMD python2 /project/solution.py
+CMD python3.7 /project/solution.py
 
 

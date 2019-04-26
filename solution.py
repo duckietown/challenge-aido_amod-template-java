@@ -22,11 +22,14 @@ class Solver(ChallengeSolution):
         # dirlist = os.listdir(os.getcwd())
         # cis.info(dirlist)
         cis.info('showing java version:')
-        cmdversion = ['java','-version']
+        cmdversion = ['java', '-version']
         subprocess.check_call(cmdversion, cwd=cwd, stdout=sys.stdout, stderr=sys.stderr)
+        assert os.path.exists('/aidamod/target/tensor-0.6.1.jar')
         # cmd = ['java', '-jar', 'aidamod-1.4.7.jar', 'aido-host']
-        cmd = ['java', '-cp', '/amod/target/amod-1.6.7.jar',
-               '-cp', '/aidamod/target/classes','aidamod.demo.AidoGuest', 'aido-host']
+        cmd = ['java',
+               '-cp', ":".join(['/amod/target/amod-1.6.7.jar',
+                                '/aidamod/target/tensor-0.6.1.jar',
+                                '/aidamod/target/classes']), 'aidamod.demo.AidoGuest', 'aido-host']
 
         cis.info('Now running %s' % cmd)
 
@@ -34,6 +37,8 @@ class Solver(ChallengeSolution):
 
         cis.set_solution_output_dict({})
 
+
+# java -cp /amod/target/amod-1.6.7.jar -cp /aidamod/target/tensor-0.6.1.jar -cp /aidamod/target/classes aidamod.demo.AidoGuest aido-host
 
 if __name__ == '__main__':
     wrap_solution(Solver())

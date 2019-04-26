@@ -14,6 +14,11 @@ RUN mvn -f /aidamod/pom.xml compile -DskipTests=true
 WORKDIR /aidamod/target/
  
 
+RUN cp /root/.m2/repository/ch/ethz/idsc/tensor/0.6.1/tensor-0.6.1.jar /aidamod/target/
+
+RUN chmod -R o+rx /root
+RUN chmod -R o+rx /amod
+RUN chmod -R o+rx /aidamod
 
 COPY solution.py /project/solution.py
 CMD python3.7 /project/solution.py

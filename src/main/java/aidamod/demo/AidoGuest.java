@@ -32,6 +32,8 @@ public class AidoGuest {
      *            1 entry which is IP address
      * @throws Exception */
     public static void main(String[] args) throws Exception {
+
+        Scalar one = RealScalar.ONE;
         AidoGuest aidoGuest = new AidoGuest(args.length == 0 ? "localhost" : args[0]);
         aidoGuest.run(SCENARIO, REQUEST_NUMBER_DESIRED, NUMBER_OF_VEHICLES);
     }
